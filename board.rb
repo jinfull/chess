@@ -26,6 +26,9 @@ class Board
 
     
 
+
+
+
     def [](row,col)
         @board[row][col]
     end
