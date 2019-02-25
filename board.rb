@@ -9,7 +9,9 @@ class Board
         (0..7).each do |row|
             (0..7).each do |col|
                 if (0..1).include?(row) || (6..7).include?(row)
-                    @board[row][col] = Piece.new
+                    @board[row][col] = Piece.new('P')
+                else
+                    @board[row][col] = Piece.new('-')
                 end
             end
         end

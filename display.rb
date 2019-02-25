@@ -14,10 +14,10 @@ class Display
     def render
         (0..7).each do |row_i|
             (0..7).each do |col_i|
-                if @board[row_i,col_i].is_a?(Piece)
+                if [row_i,col_i] == @cursor.cursor_pos
+                    print "#{@board[row_i,col_i].value.colorize(:blue)} "
+                else 
                     print "#{@board[row_i,col_i].value} "
-                else
-                    print "- "
                 end
             end
 
@@ -25,6 +25,13 @@ class Display
         end
         
         nil
+    end
+
+    def make_move_clone
+
+
+
+
     end
 
 
