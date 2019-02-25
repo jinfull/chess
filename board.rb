@@ -26,7 +26,9 @@ class Board
 
     
 
-
+    def valid_pos?(pos)
+        (0..7).include?(pos.first) && (0..7).include?(pos.last)
+    end
 
 
     def [](row,col)
