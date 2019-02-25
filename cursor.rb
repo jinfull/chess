@@ -78,13 +78,15 @@ class Cursor
   def handle_key(key)
     diff = [0,0]
 
-    case handle_key
+    case
     when key == :return || key == :space
       return @cursor_pos
+
     when key == :left || key == :right || key == :up || key == :down
-      diff += MOVES[key]      
+      diff = [diff[0] + MOVES[key][0], diff[1] + MOVES[key][1]]
       update_pos(diff)
       return nil
+
     when key == :ctrl_c
       Process.exit(0)
     end

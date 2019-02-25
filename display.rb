@@ -29,9 +29,11 @@ class Display
 
     def make_move_clone
 
-
-
-
+        while true
+            @cursor.get_input
+            self.render
+        end
+        
     end
 
 
