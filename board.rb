@@ -16,13 +16,12 @@ class Board
     end
 
     def move_piece(start_pos, end_pos)
-        begin
-            
-        rescue => exception
-            
-        end
+        raise "there is no piece at #{start_pos}!" if self[*start_pos].nil?
+        raise "there is already a piece at #{end_pos}!" unless self[*end_pos].nil?
+        # raise "that is not a legal move!" if self[*start_pos].possible_moves.include?([*end_pos])
 
-
+        self[*end_pos] = self[*start_pos]
+        self[*start_pos] = nil
     end
 
     
