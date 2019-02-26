@@ -28,15 +28,8 @@ class Display
     end
 
     def make_move_clone
-
-        while true
-            @cursor.get_input
+        until @cursor.get_input == @cursor.cursor_pos
             self.render
         end
-        
     end
-
-
-
-
 end
