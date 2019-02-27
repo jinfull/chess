@@ -1,4 +1,4 @@
-require_relative "piece"
+require_relative "./pieces/piece.rb"
 
 class Board
     attr_reader :board

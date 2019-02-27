@@ -1,6 +1,6 @@
 require_relative "board"
 require_relative "cursor"
-require_relative "piece"
+require_relative "./pieces/piece"
 
 require "colorize"
 
