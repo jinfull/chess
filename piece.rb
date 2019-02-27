@@ -12,6 +12,22 @@ class Piece
     end
 end
 
+# MOVES hash / will this conflict with MOVES constant in cursor.rb?
+
+MOVES = {
+    e: [0, 1],
+    w: [0, -1],
+    n: [-1, 0],
+    s: [1, 0],
+    ne: [-1, 1],
+    nw: [-1, -1],
+    sw: [1, -1],
+    se: [1, 1]
+}
+ 
+
+#
+
 module Slideable
     # def 
 end
@@ -29,14 +45,14 @@ class Bishop < Piece
     include Slideable
 
     attr_reader :color, :symbol
-    attr_accessor :position
+    attr_accessor :board, :position
 
-    def initialize(board)
+    def initialize(board, color)
         @board = board
+        @color = color
 
-        @color = :green
         @symbol = :B
-        @position = [0,0]
+        # @position = [0,0]
     end
     
     def move_dirs
@@ -47,12 +63,40 @@ end
 class Rook < Piece
     include Slideable
 
+    attr_reader :color, :symbol
+    attr_accessor :board, :position
+
+    def initialize(board, color)
+        @board = board
+        @color = color
+
+        @symbol = :R
+        # @position = 
+    end
+
+    def move_dirs
+        [:e, :w, :n, :s]
+    end
 
 end
 
 class Queen < Piece
     include Slideable
 
+    attr_reader :color, :symbol
+    attr_accessor :board, :position
+
+    def initialize(board, color)
+        @board = board
+        @color = color
+
+        @symbol = :Q
+        # @position = 
+    end
+
+    def move_dirs
+        [:e, :w, :n, :s, :ne, :nw, :sw, :se]
+    end
 
 end
 
