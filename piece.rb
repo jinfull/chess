@@ -1,10 +1,10 @@
-class Piece
-    attr_reader :color, :board, :pos
+require_relative "board"
 
-    def initialize(color, board, pos)
-        @color = color
-        @board = board
-        @pos = pos
+class Piece
+    attr_reader
+
+    def initialize        
+        
     end
 
     def moves
@@ -28,14 +28,20 @@ end
 class Bishop < Piece
     include Slideable
 
+    attr_reader :color, :symbol
+    attr_accessor :position
+
+    def initialize(board)
+        @board = board
+
+        @color = :B
+        @symbol = :B
+        @position = [0,0]
+    end
     
     def move_dirs
-        return true if self == Bishop
-
-        false
+        
     end
-
-
 end
 
 class Rook < Piece
@@ -64,10 +70,13 @@ end
 
 # null pieces (occupy empty spaces)
 
-# class NullPiece < Piece
-#     include Singleton
+class NullPiece < Piece
+    attr_reader :symbol
 
-# end
+    def initialize
+        @symbol = "-"
+    end
+end
 
 # PAWNs
 

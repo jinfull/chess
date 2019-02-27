@@ -8,13 +8,21 @@ class Board
 
         (0..7).each do |row|
             (0..7).each do |col|
-                if (0..1).include?(row) || (6..7).include?(row)
-                    @board[row][col] = Piece.new('P')
-                else
-                    @board[row][col] = Piece.new('-')
-                end
+                @board[row][col] = NullPiece.new
             end
         end
+    end
+
+    def render
+        (0..7).each do |row|
+            (0..7).each do |col|
+                print "#{@board[row][col].symbol} "
+            end
+
+            puts "\n"
+        end
+
+        nil
     end
 
     def move_piece(start_pos, end_pos)
@@ -40,5 +48,4 @@ class Board
     def []=(row,col,value) 
         @board[row][col] = value
     end
-
 end
