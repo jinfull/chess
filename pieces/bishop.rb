@@ -7,12 +7,14 @@ class Bishop < Piece
     attr_reader :color, :symbol
     attr_accessor :board, :position
 
-    def initialize(board, color)
+    def initialize(board, position, color)
         @board = board
+        @position = position
         @color = color
 
+        @board[*@position] = self
+
         @symbol = :B
-        @position = [3,4]
     end
     
     def move_dirs

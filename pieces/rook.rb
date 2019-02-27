@@ -7,12 +7,14 @@ class Rook < Piece
     attr_reader :color, :symbol
     attr_accessor :board, :position
 
-    def initialize(board, color)
+    def initialize(board, position, color)
         @board = board
+        @position = position
         @color = color
 
+        @board[*@position] = self
+
         @symbol = :R
-        # @position = 
     end
 
     def move_dirs

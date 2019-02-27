@@ -1,6 +1,6 @@
 require_relative "board"
 require_relative "cursor"
-require_relative "./pieces/piece"
+Dir[File.join(__dir__, 'pieces', '*.rb')].each { |file| require file }
 
 require "colorize"
 

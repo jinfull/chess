@@ -1,4 +1,4 @@
-require_relative "./pieces/piece.rb"
+Dir[File.join(__dir__, 'pieces', '*.rb')].each { |file| require file }
 
 class Board
     attr_reader :board
