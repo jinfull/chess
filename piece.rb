@@ -1,8 +1,10 @@
 class Piece
-    attr_reader :value
+    attr_reader :color, :board, :pos
 
-    def initialize(value)
-        @value = value
+    def initialize(color, board, pos)
+        @color = color
+        @board = board
+        @pos = pos
     end
 
     def moves
@@ -10,29 +12,41 @@ class Piece
     end
 end
 
-module Sliding
+module Slideable
+    # def 
+end
+
+module Stepable
 
 end
 
-module Stepping
-
-end
 
 
-
-    # sliding pieces
+# sliding pieces
 # need to implement sliding module?
 
 class Bishop < Piece
+    include Slideable
+
+    
+    def move_dirs
+        return true if self == Bishop
+
+        false
+    end
+
 
 end
 
 class Rook < Piece
+    include Slideable
 
 
 end
 
 class Queen < Piece
+    include Slideable
+
 
 end
 
@@ -40,20 +54,20 @@ end
 # need to implement stepping module?
 
 class Knight < Piece
-
+    include Stepable
 end
 
 class King < Piece
-
+    include Stepable
 
 end
 
 # null pieces (occupy empty spaces)
 
-class NullPiece < Piece
+# class NullPiece < Piece
+#     include Singleton
 
-
-end
+# end
 
 # PAWNs
 
