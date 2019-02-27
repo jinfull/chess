@@ -34,13 +34,13 @@ class Bishop < Piece
     def initialize(board)
         @board = board
 
-        @color = :B
+        @color = :green
         @symbol = :B
         @position = [0,0]
     end
     
     def move_dirs
-        
+        [:ne, :nw, :sw, :se]
     end
 end
 

@@ -1,5 +1,6 @@
 require_relative "board"
 require_relative "cursor"
+require_relative "piece"
 
 require "colorize"
 
@@ -14,10 +15,14 @@ class Display
     def render
         (0..7).each do |row_i|
             (0..7).each do |col_i|
-                if [row_i,col_i] == @cursor.cursor_pos
-                    print "#{@board[row_i,col_i].value.colorize(:blue)} "
-                else 
-                    print "#{@board[row_i,col_i].value} "
+                pos = [row_i, col_i]
+
+                if pos == @cursor.cursor_pos
+                    print "#{@board[*pos].symbol} ".colorize(:blue)
+                elsif !@board[*pos].is_a?(NullPiece)
+                    print "#{@board[*pos].symbol} ".colorize(@board[*pos].color)
+                else
+                    print "#{@board[*pos].symbol} "
                 end
             end
 

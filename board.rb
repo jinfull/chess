@@ -6,9 +6,9 @@ class Board
     def initialize
         @board = Array.new(8) { Array.new(8) }
 
-        (0..7).each do |row|
-            (0..7).each do |col|
-                @board[row][col] = NullPiece.new
+        (0..7).each do |row_i|
+            (0..7).each do |col_i|
+                @board[row_i][col_i] = NullPiece.new
             end
         end
     end
