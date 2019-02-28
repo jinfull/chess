@@ -31,6 +31,19 @@ module Stepable
 
 
     def valid_move?(move)
-        (0..7).include?(move.first) && (0..7).include?(move.last) && @board[*move].is_a?(NullPiece)
+        inbounds?(move) && (empty_space?(move) || enemy_in_pos?(move))
     end
+
+    def inbounds?(move)
+        (0..7).include?(move.first) && (0..7).include?(move.last)
+    end
+
+    def empty_space?(move)
+        @board[*move].is_a?(NullPiece)
+    end
+
+    def enemy_in_pos?(move)
+        !@board[*move].is_a?(NullPiece) && @board[*move].color != self.color
+    end
+
 end
